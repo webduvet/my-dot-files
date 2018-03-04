@@ -1,1 +1,0 @@
-/Users/andrejbartko/.oh-my-zsh/oh-my-zsh.sh

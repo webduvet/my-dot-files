@@ -8,6 +8,8 @@ export ZSH=/Users/andrejbartko/.oh-my-zsh
 
 export POWERLINE_HIDE_USER_NAME=true
 export POWERLINE_HIDE_HOST_NAME=true
+export POWERLINE_PATH="short"
+#export POWERLINE_CUSTOM_CURRENT_PATH="%3~"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -16,7 +18,11 @@ export POWERLINE_HIDE_HOST_NAME=true
 POWERLEVEL9K_MODE='awesome-fontconfig'
 #POWERLEVEL9K_MODE='awesome-patched'
 #ZSH_THEME="powerlevel9k/powerlevel9k"
- ZSH_THEME="powerline"
+ZSH_THEME="powerline"
+#POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+#POWERLEVEL9K_SHORTEN_DELIMITER="_"
+#POWERLEVEL9K_SHORTEN_DELIMITER="truncate_from_right"
+#POWERLEVEL9K_HOME_FOLDER_ABBREVIATION="%F{red} $(print_icon 'HOME_ICON') %F{black}"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -76,7 +82,6 @@ source $ZSH/oh-my-zsh.sh
 # NVM
 source $(brew --prefix nvm)/nvm.sh
 
-export POWERLINE_HIDE_USER_NAME=true
 
 # User configuration
 

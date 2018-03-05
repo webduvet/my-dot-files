@@ -26,6 +26,8 @@ colorscheme jellybeans
   Plug 'mxw/vim-jsx'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'jiangmiao/auto-pairs'
+
+  " ternjs is not actively maintaned = find replacement
   Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
   "Plug 'lygaret/autohighlight.vim'
   Plug 'scrooloose/nerdtree'

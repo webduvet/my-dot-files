@@ -11,6 +11,9 @@ set timeoutlen=1000 ttimeoutlen=0
 
 colorscheme jellybeans
 
+let g:python3_host_prog='/usr/local/bin/python3'
+let g:python_host_prog='/usr/local/bin/python'
+
 " Plugin outside ~/.vim/plugged with post-update hook
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
@@ -25,10 +28,11 @@ colorscheme jellybeans
   Plug 'rking/ag.vim'
   Plug 'mxw/vim-jsx'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'w0rp/ale'
   Plug 'jiangmiao/auto-pairs'
 
   " ternjs is not actively maintaned = find replacement
-  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+  "Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
   "Plug 'lygaret/autohighlight.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'easymotion/vim-easymotion'

@@ -6,6 +6,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/andrejbartko/.oh-my-zsh
 
+
 export POWERLINE_HIDE_USER_NAME=true
 export POWERLINE_HIDE_HOST_NAME=true
 export POWERLINE_PATH="short"
@@ -78,10 +79,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
-# NVM
-source $(brew --prefix nvm)/nvm.sh
-
 
 # User configuration
 

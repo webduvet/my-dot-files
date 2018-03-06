@@ -11,6 +11,11 @@ set timeoutlen=1000 ttimeoutlen=0
 
 colorscheme jellybeans
 
+" prettier settings
+autocmd FileType javascript set formatprg=prettier\ --stdin
+autocmd BufWritePre *.js :normal gggqG
+autocmd BufWritePre *.jsx :normal gggqG
+
 let g:python3_host_prog='/usr/local/bin/python3'
 let g:python_host_prog='/usr/local/bin/python'
 

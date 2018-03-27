@@ -9,12 +9,16 @@ set tabstop=2 shiftwidth=2 expandtab smarttab
 
 set timeoutlen=1000 ttimeoutlen=0
 
+set nu
+set colorcolumn=100
+
 colorscheme jellybeans
 
 " prettier settings
-autocmd FileType javascript set formatprg=prettier\ --stdin
-autocmd BufWritePre *.js :normal gggqG
-autocmd BufWritePre *.jsx :normal gggqG
+" this prettify everything upon the save - not very user friendly
+"autocmd FileType javascript set formatprg=prettier\ --stdin
+"autocmd BufWritePre *.js :normal gggqG
+"autocmd BufWritePre *.jsx :normal gggqG
 
 let g:python3_host_prog='/usr/local/bin/python3'
 let g:python_host_prog='/usr/local/bin/python'
@@ -43,9 +47,14 @@ let g:python_host_prog='/usr/local/bin/python'
   Plug 'easymotion/vim-easymotion'
   Plug 'pboettch/vim-highlight-cursor-words'
   Plug 'jeetsukumaran/vim-buffergator'
+  "Plug 'xolox/vim-notes'
+
 
 " Initialize plugin system
 call plug#end()
+
+" for buffergator allow swap unsaved buffer
+set hidden
 
 " deoplete configuration
 let g:deoplete#enable_at_startup = 1
@@ -83,3 +92,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" NERDTree
+map <leader>n :NERDTreeToggle<cr>

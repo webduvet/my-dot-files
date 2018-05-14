@@ -36,9 +36,18 @@ let g:python_host_prog='/usr/local/bin/python'
   Plug 'morhetz/gruvbox'
   Plug 'rking/ag.vim'
   Plug 'mxw/vim-jsx'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'w0rp/ale'
   Plug 'jiangmiao/auto-pairs'
+
+  "typescript
+  Plug 'mhartington/deoplete-typescript'
+  Plug 'mhartington/nvim-typescript'
+  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Quramy/tsuquyomi', { 'do': 'npm install -g typescript' }
+
+  Plug 'HerringtonDarkholme/yats.vim'
+
 
   " ternjs is not actively maintaned = find replacement
   "Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }

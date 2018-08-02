@@ -108,6 +108,20 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias rf="rm -rf"
+
+# VIM
+alias vi=nvim
+
+# KUBERNETES
+alias kb=kubectl
+alias kbp="kb get pods"
+alias kbs="kb get services"
+
+# MINIKUBE
+alias mik=minikube
+
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # NVM git install refer: https://github.com/creationix/nvm

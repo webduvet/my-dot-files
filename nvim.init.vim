@@ -40,13 +40,16 @@ let g:python_host_prog='/usr/local/bin/python'
   Plug 'jiangmiao/auto-pairs'
 
   "typescript
-  Plug 'mhartington/deoplete-typescript'
-  Plug 'mhartington/nvim-typescript'
+  "Plug 'mhartington/deoplete-typescript'
+  "Plug 'mhartington/nvim-typescript'
   Plug 'Shougo/vimproc.vim', { 'do': 'make' }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Quramy/tsuquyomi', { 'do': 'npm install -g typescript' }
 
   Plug 'HerringtonDarkholme/yats.vim'
+
+  " FLOW
+  Plug 'flowtype/vim-flow', { 'autoload': { 'filetypes': 'javascript' } }
 
 
   " ternjs is not actively maintaned = find replacement
@@ -104,3 +107,4 @@ nnoremap <C-H> <C-W><C-H>
 
 " NERDTree
 map <leader>n :NERDTreeToggle<cr>
+:let g:NERDTreeWinSize=60

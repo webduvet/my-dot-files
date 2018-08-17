@@ -38,6 +38,7 @@ let g:python_host_prog='/usr/local/bin/python'
   Plug 'mxw/vim-jsx'
   Plug 'w0rp/ale'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'martinda/Jenkinsfile-vim-syntax'
 
   "typescript
   "Plug 'mhartington/deoplete-typescript'
@@ -49,7 +50,7 @@ let g:python_host_prog='/usr/local/bin/python'
   Plug 'HerringtonDarkholme/yats.vim'
 
   " FLOW
-  Plug 'flowtype/vim-flow', { 'autoload': { 'filetypes': 'javascript' } }
+  "Plug 'flowtype/vim-flow', { 'autoload': { 'filetypes': 'javascript' } }
 
 
   " ternjs is not actively maintaned = find replacement
@@ -60,7 +61,6 @@ let g:python_host_prog='/usr/local/bin/python'
   Plug 'pboettch/vim-highlight-cursor-words'
   Plug 'jeetsukumaran/vim-buffergator'
   "Plug 'xolox/vim-notes'
-
 
 " Initialize plugin system
 call plug#end()
@@ -95,6 +95,7 @@ map <c-a> :Ag
 " buffergator
 "map <leader>bb :BuffergatorOpen<cr>
 
+let NERDTreeShowHidden=1
 
 " search text under cursor
 map <leader>s :$s/\<<C-r><C-w>\>/
@@ -108,3 +109,6 @@ nnoremap <C-H> <C-W><C-H>
 " NERDTree
 map <leader>n :NERDTreeToggle<cr>
 :let g:NERDTreeWinSize=60
+
+" map ESC
+imap § <Esc>

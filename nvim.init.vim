@@ -60,7 +60,10 @@ let g:python_host_prog='/usr/local/bin/python'
   Plug 'easymotion/vim-easymotion'
   Plug 'pboettch/vim-highlight-cursor-words'
   Plug 'jeetsukumaran/vim-buffergator'
-  "Plug 'xolox/vim-notes'
+  Plug 'xolox/vim-notes'
+  Plug 'xolox/vim-misc'
+  
+  Plug 'aserebryakov/vim-todo-lists'
 
 " Initialize plugin system
 call plug#end()

@@ -121,6 +121,8 @@ alias kbs="kb get services"
 # MINIKUBE
 alias mik=minikube
 
+# MY ALIASES
+alias todo=vi ~/Goals/
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

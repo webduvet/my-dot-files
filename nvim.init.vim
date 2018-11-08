@@ -65,6 +65,9 @@ let g:python_host_prog='/usr/local/bin/python'
   
   Plug 'aserebryakov/vim-todo-lists'
 
+  Plug 'jaxbot/github-issues.vim'
+  Plug 'junegunn/vim-github-dashboard'
+
 " Initialize plugin system
 call plug#end()
 
@@ -115,3 +118,10 @@ map <leader>n :NERDTreeToggle<cr>
 
 " map ESC
 imap § <Esc>
+ 
+" table mapping simple
+"map <leader>| │
+"map <leader>l └
+"map <leader>- ─
+"map <leader>e ├
+ 

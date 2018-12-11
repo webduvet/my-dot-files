@@ -65,8 +65,8 @@ let g:python_host_prog='/usr/local/bin/python'
   
   Plug 'aserebryakov/vim-todo-lists'
 
-  Plug 'jaxbot/github-issues.vim'
-  Plug 'junegunn/vim-github-dashboard'
+  "Plug 'jaxbot/github-issues.vim'
+  "Plug 'junegunn/vim-github-dashboard'
 
 " Initialize plugin system
 call plug#end()

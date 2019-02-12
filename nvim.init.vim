@@ -67,6 +67,9 @@ let g:python_host_prog='/usr/local/bin/python'
 
   "Plug 'jaxbot/github-issues.vim'
   "Plug 'junegunn/vim-github-dashboard'
+  
+  "Grammar
+  Plug 'rhysd/vim-grammarous'
 
 " Initialize plugin system
 call plug#end()

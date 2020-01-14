@@ -37,6 +37,8 @@ let g:python_host_prog='/usr/local/bin/python'
   Plug 'rking/ag.vim'
   Plug 'mxw/vim-jsx'
   Plug 'w0rp/ale'
+  let g:ale_linters = {'javascript': ['eslint', 'flow']}  
+
   Plug 'jiangmiao/auto-pairs'
   Plug 'martinda/Jenkinsfile-vim-syntax'
 
@@ -48,9 +50,10 @@ let g:python_host_prog='/usr/local/bin/python'
   Plug 'Quramy/tsuquyomi', { 'do': 'npm install -g typescript' }
 
   Plug 'HerringtonDarkholme/yats.vim'
+  "Plug 'flowtype/vim-flow', { 'autoload': {'filetypes': 'javascript' }}
 
   " FLOW
-  "Plug 'flowtype/vim-flow', { 'autoload': { 'filetypes': 'javascript' } }
+  Plug 'flowtype/vim-flow', { 'autoload': { 'filetypes': 'javascript' } }
 
 
   " ternjs is not actively maintaned = find replacement

@@ -6,6 +6,11 @@ belongs usually here:
 `.oh-my-zsh/.oh-my-zsh.sh`
 
 ### NVIM
+lookup github
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 `.config/nvim/init.vim`
 
 ### SETUP

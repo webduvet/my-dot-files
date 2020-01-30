@@ -20,8 +20,8 @@ colorscheme jellybeans
 "autocmd BufWritePre *.js :normal gggqG
 "autocmd BufWritePre *.jsx :normal gggqG
 
-let g:python3_host_prog='/usr/local/bin/python3'
-let g:python_host_prog='/usr/local/bin/python'
+let g:python3_host_prog='/usr/bin/python3'
+let g:python_host_prog='/usr/bin/python'
 
 " Plugin outside ~/.vim/plugged with post-update hook
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

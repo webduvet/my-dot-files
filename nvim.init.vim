@@ -12,7 +12,10 @@ set timeoutlen=1000 ttimeoutlen=0
 set nu
 set colorcolumn=100
 
-colorscheme jellybeans
+set background=dark
+
+"colorscheme jellybeans
+"papelColor is down after Plug
 
 " prettier settings
 " this prettify everything upon the save - not very user friendly
@@ -24,6 +27,7 @@ let g:python3_host_prog='/usr/bin/python3'
 let g:python_host_prog='/usr/bin/python'
 
 " Plugin outside ~/.vim/plugged with post-update hook
+  Plug 'NLKNguyen/papercolor-theme'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'tpope/vim-fugitive'
@@ -77,6 +81,7 @@ let g:python_host_prog='/usr/bin/python'
 " Initialize plugin system
 call plug#end()
 
+colorscheme PaperColor
 " for buffergator allow swap unsaved buffer
 set hidden
 

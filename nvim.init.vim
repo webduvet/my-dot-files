@@ -12,7 +12,8 @@ set timeoutlen=1000 ttimeoutlen=0
 set nu
 set colorcolumn=100
 
-colorscheme jellybeans
+"colorscheme jellybeans
+colorscheme morning
 
 " prettier settings
 " this prettify everything upon the save - not very user friendly
@@ -130,4 +131,9 @@ imap § <Esc>
 "map <leader>l └
 "map <leader>- ─
 "map <leader>e ├
- 
+
+augroup filetype_c
+    autocmd!
+    :autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 expandtab smarttab
+    :autocmd FileType c nnoremap <buffer> <localleader>c I/*<space><esc><s-a><space>*/<esc>
+augroup end

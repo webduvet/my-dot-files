@@ -13,7 +13,7 @@ set nu
 set colorcolumn=100
 
 "colorscheme jellybeans
-colorscheme morning
+"colorscheme morning
 
 " prettier settings
 " this prettify everything upon the save - not very user friendly
@@ -32,13 +32,13 @@ let g:python_host_prog='/usr/bin/python'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'scrooloose/nerdcommenter'
-  Plug 'pangloss/vim-javascript'
-  Plug 'dikiaap/minimalist'
-  Plug 'morhetz/gruvbox'
+"  Plug 'pangloss/vim-javascript'
+"  Plug 'dikiaap/minimalist'
+"  Plug 'morhetz/gruvbox'
   Plug 'rking/ag.vim'
-  Plug 'mxw/vim-jsx'
-  Plug 'w0rp/ale'
-  let g:ale_linters = {'javascript': ['eslint', 'flow']}  
+"  Plug 'mxw/vim-jsx'
+"  Plug 'w0rp/ale'
+"  let g:ale_linters = {'javascript': ['eslint', 'flow']}  
 
   Plug 'jiangmiao/auto-pairs'
   Plug 'martinda/Jenkinsfile-vim-syntax'
@@ -48,13 +48,13 @@ let g:python_host_prog='/usr/bin/python'
   "Plug 'mhartington/nvim-typescript'
   Plug 'Shougo/vimproc.vim', { 'do': 'make' }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'Quramy/tsuquyomi', { 'do': 'npm install -g typescript' }
+"  Plug 'Quramy/tsuquyomi', { 'do': 'npm install -g typescript' }
 
-  Plug 'HerringtonDarkholme/yats.vim'
+"  Plug 'HerringtonDarkholme/yats.vim'
   "Plug 'flowtype/vim-flow', { 'autoload': {'filetypes': 'javascript' }}
 
   " FLOW
-  Plug 'flowtype/vim-flow', { 'autoload': { 'filetypes': 'javascript' } }
+"  Plug 'flowtype/vim-flow', { 'autoload': { 'filetypes': 'javascript' } }
 
 
   " ternjs is not actively maintaned = find replacement

@@ -45,6 +45,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'plasticboy/vim-markdown'
     Plug 'jiangmiao/auto-pairs'
     Plug 'martinda/Jenkinsfile-vim-syntax'
+    Plug 'udalov/kotlin-vim'
     Plug 'Shougo/vimproc.vim', { 'do': 'make' }
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     "Plug 'lygaret/autohighlight.vim'
@@ -60,6 +61,8 @@ call plug#begin('~/.vim/plugged')
     "Grammar
     Plug 'rhysd/vim-grammarous'
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+
+    Plug 'preservim/tagbar'
 
     " Initialize plugin system
 call plug#end()
@@ -123,3 +126,5 @@ augroup filetype_c
     :autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 expandtab smarttab
     :autocmd FileType c nnoremap <buffer> <localleader>c I/*<space><esc><s-a><space>*/<esc>
 augroup end
+
+nmap <F8> :TagbarToggle<CR>

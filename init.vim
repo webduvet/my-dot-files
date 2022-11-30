@@ -1,14 +1,18 @@
 set termguicolors
 
-set tabstop=4 shiftwidth=4 expandtab smarttab
+set tabstop=4 shiftwidth=4 smarttab
+" expandtab
 
 set timeoutlen=1000 ttimeoutlen=0
 
 set nu
 set colorcolumn=100
 
+set list listchars+=space:. listchars-=eol:$
+
 " turn off autofolding
 set nofoldenable
+
 
 "colorscheme jellybeans
 "colorscheme morning
@@ -29,42 +33,43 @@ let g:python_host_prog='/usr/bin/python'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-    " Plugin outside ~/.vim/plugged with post-update hook
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-surround'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'scrooloose/nerdcommenter'
-    "  Plug 'pangloss/vim-javascript'
-    Plug 'rking/ag.vim'
-    "  Plug 'mxw/vim-jsx'
-    "  Plug 'w0rp/ale'
-    "  let g:ale_linters = {'javascript': ['eslint', 'flow']}  
-    Plug 'plasticboy/vim-markdown'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'martinda/Jenkinsfile-vim-syntax'
-    Plug 'udalov/kotlin-vim'
-    Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    "Plug 'lygaret/autohighlight.vim'
-    Plug 'scrooloose/nerdtree'
-    Plug 'easymotion/vim-easymotion'
-    Plug 'pboettch/vim-highlight-cursor-words'
-    Plug 'jeetsukumaran/vim-buffergator'
-    Plug 'xolox/vim-notes'
-    Plug 'xolox/vim-misc'
+	" Plugin outside ~/.vim/plugged with post-update hook
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'junegunn/fzf.vim'
+	Plug 'tpope/vim-fugitive'
+	Plug 'tpope/vim-surround'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+	Plug 'scrooloose/nerdcommenter'
+	"  Plug 'pangloss/vim-javascript'
+	Plug 'rking/ag.vim'
+	"  Plug 'mxw/vim-jsx'
+	"  Plug 'w0rp/ale'
+	"  let g:ale_linters = {'javascript': ['eslint', 'flow']}  
+	Plug 'plasticboy/vim-markdown'
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'martinda/Jenkinsfile-vim-syntax'
+	Plug 'udalov/kotlin-vim'
+	Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	"Plug 'lygaret/autohighlight.vim'
+	Plug 'scrooloose/nerdtree'
+	Plug 'easymotion/vim-easymotion'
+	Plug 'pboettch/vim-highlight-cursor-words'
+	Plug 'jeetsukumaran/vim-buffergator'
+	Plug 'xolox/vim-notes'
+	Plug 'xolox/vim-misc'
+	"Plug 'Yggdroot/indentLine'
 
-    Plug 'aserebryakov/vim-todo-lists'
+	Plug 'aserebryakov/vim-todo-lists'
 
-    "Grammar
-    Plug 'rhysd/vim-grammarous'
-    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+	"Grammar
+	Plug 'rhysd/vim-grammarous'
+	Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
-    Plug 'preservim/tagbar'
+	Plug 'preservim/tagbar'
 
-    " Initialize plugin system
+	" Initialize plugin system
 call plug#end()
 
 " for buffergator allow swap unsaved buffer
@@ -74,12 +79,12 @@ set hidden
 let g:deoplete#enable_at_startup = 1
 
 inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ deoplete#mappings#manual_complete()
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ deoplete#mappings#manual_complete()
 function! s:check_back_space() abort "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
 
 set clipboard=unnamedplus
@@ -122,9 +127,9 @@ imap § <Esc>
 "map <leader>e ├
 
 augroup filetype_c
-    autocmd!
-    :autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 expandtab smarttab
-    :autocmd FileType c nnoremap <buffer> <localleader>c I/*<space><esc><s-a><space>*/<esc>
+	autocmd!
+	:autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 expandtab smarttab
+	:autocmd FileType c nnoremap <buffer> <localleader>c I/*<space><esc><s-a><space>*/<esc>
 augroup end
 
 nmap <F8> :TagbarToggle<CR>

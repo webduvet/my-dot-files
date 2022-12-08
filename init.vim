@@ -8,7 +8,9 @@ set timeoutlen=1000 ttimeoutlen=0
 set nu
 set colorcolumn=100
 
-set list listchars+=space:. listchars-=eol:$
+" visible hidden characters
+set list listchars+=nbsp:· listchars-=eol:$
+"set listchars=tab:\ \ ,nbsp:·
 
 " turn off autofolding
 set nofoldenable
@@ -56,7 +58,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'scrooloose/nerdtree'
 	Plug 'easymotion/vim-easymotion'
 	Plug 'pboettch/vim-highlight-cursor-words'
-	Plug 'jeetsukumaran/vim-buffergator'
+	"Plug 'jeetsukumaran/vim-buffergator'
 	Plug 'xolox/vim-notes'
 	Plug 'xolox/vim-misc'
 	"Plug 'Yggdroot/indentLine'
@@ -71,6 +73,9 @@ call plug#begin('~/.vim/plugged')
 
 	" Initialize plugin system
 call plug#end()
+
+" colorscheme needs vim plug
+colorscheme jellybeans
 
 " for buffergator allow swap unsaved buffer
 set hidden
@@ -133,3 +138,4 @@ augroup filetype_c
 augroup end
 
 nmap <F8> :TagbarToggle<CR>
+

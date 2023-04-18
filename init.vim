@@ -1,8 +1,5 @@
 set termguicolors
 
-set tabstop=4 shiftwidth=4 smarttab
-" expandtab
-
 set timeoutlen=1000 ttimeoutlen=0
 
 set nu
@@ -11,10 +8,18 @@ set colorcolumn=100
 " visible hidden characters
 set list listchars+=nbsp:· listchars-=eol:$
 "set listchars=tab:\ \ ,nbsp:·
+let &listchars = 'tab:| ,nbsp:·'
 
 " turn off autofolding
 set nofoldenable
 
+" tabs for different files and default
+set tabstop=4 shiftwidth=4 smarttab expandtab
+
+" for js/coffee/jade files, 4 spaces
+autocmd Filetype javascript setlocal ts=4 sw=4 noexpandtab
+autocmd Filetype json setlocal ts=4 sw=4 noexpandtab
+autocmd Filetype c setlocal ts=8 sw=8 noexpandtab
 
 "colorscheme jellybeans
 "colorscheme morning
@@ -39,6 +44,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
 	Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-surround'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
@@ -58,12 +64,14 @@ call plug#begin('~/.vim/plugged')
 	Plug 'scrooloose/nerdtree'
 	Plug 'easymotion/vim-easymotion'
 	Plug 'pboettch/vim-highlight-cursor-words'
-	"Plug 'jeetsukumaran/vim-buffergator'
+	Plug 'jeetsukumaran/vim-buffergator'
 	Plug 'xolox/vim-notes'
 	Plug 'xolox/vim-misc'
 	"Plug 'Yggdroot/indentLine'
 
 	Plug 'aserebryakov/vim-todo-lists'
+    Plug 'leafgarland/typescript-vim'
+
 
 	"Grammar
 	Plug 'rhysd/vim-grammarous'

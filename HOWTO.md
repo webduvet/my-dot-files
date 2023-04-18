@@ -15,7 +15,8 @@ install oh-my-zsh
     cary over zshrc
 
 tmux
-    add conf
+    add tmux/tpm - plugin manager
+    add .tmux.conf
     to get all the shortcuts
 
 

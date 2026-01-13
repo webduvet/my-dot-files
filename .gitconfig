@@ -1,0 +1,11 @@
+[user]
+	email = andrej.bartko@gmail.com
+	name = andrej_bartko
+[core]
+	editor = nvim
+	sshCommand = ssh -i ~/.ssh/id_rsa
+
+[includeif "gitdir:~/infinite/**/*"]
+	path = ~/infinite/.gitconfig
+[init]
+	defaultBranch = main

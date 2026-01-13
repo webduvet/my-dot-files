@@ -4,6 +4,7 @@ set timeoutlen=1000 ttimeoutlen=0
 
 set nu
 set colorcolumn=100
+set wrap
 
 " visible hidden characters
 set list listchars+=nbsp:· listchars-=eol:$
@@ -14,17 +15,14 @@ let &listchars = 'tab:| ,nbsp:·'
 set nofoldenable
 
 " tabs for different files and default
-set tabstop=4 shiftwidth=4 smarttab expandtab
+"set tabstop=4 shiftwidth=4 smarttab expandtab
+set tabstop=4 shiftwidth=4 smarttab noexpandtab
 
 " for js/coffee/jade files, 4 spaces
 autocmd Filetype javascript setlocal ts=4 sw=4 noexpandtab
 autocmd Filetype json setlocal ts=4 sw=4 noexpandtab
 autocmd Filetype c setlocal ts=8 sw=8 noexpandtab
 
-"colorscheme jellybeans
-"colorscheme morning
-"colorscheme github
-"colorscheme tokyonight
 
 " prettier settings
 " this prettify everything upon the save - not very user friendly
@@ -33,7 +31,7 @@ autocmd Filetype c setlocal ts=8 sw=8 noexpandtab
 "autocmd BufWritePre *.jsx :normal gggqG
 
 let g:python3_host_prog='/usr/bin/python3'
-let g:python_host_prog='/usr/bin/python'
+"let g:python_host_prog='/usr/bin/python'
 
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
@@ -51,15 +49,19 @@ call plug#begin('~/.vim/plugged')
 	Plug 'scrooloose/nerdcommenter'
 	"  Plug 'pangloss/vim-javascript'
 	Plug 'rking/ag.vim'
-	"  Plug 'mxw/vim-jsx'
-	"  Plug 'w0rp/ale'
-	"  let g:ale_linters = {'javascript': ['eslint', 'flow']}  
+	Plug 'prettier/vim-prettier'
+	"Plug 'mxw/vim-jsx'
+	"Plug 'HerringtonDarkholme/vim-jsx-pretty'
+	Plug 'MaxMEllon/vim-jsx-pretty'
+
+	  "Plug 'w0rp/ale'
+	  "let g:ale_linters = {'javascript': ['eslint']}  
 	Plug 'plasticboy/vim-markdown'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'martinda/Jenkinsfile-vim-syntax'
 	Plug 'udalov/kotlin-vim'
 	Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	"Plug 'lygaret/autohighlight.vim'
 	Plug 'scrooloose/nerdtree'
 	Plug 'easymotion/vim-easymotion'
@@ -70,20 +72,27 @@ call plug#begin('~/.vim/plugged')
 	"Plug 'Yggdroot/indentLine'
 
 	Plug 'aserebryakov/vim-todo-lists'
-    Plug 'leafgarland/typescript-vim'
+	Plug 'leafgarland/typescript-vim'
 
+	Plug 'vim-latex/vim-latex'
 
 	"Grammar
 	Plug 'rhysd/vim-grammarous'
 	Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
+    "Plug 'github/copilot.vim'
+
 	Plug 'preservim/tagbar'
+    Plug 'udalov/kotlin-vim'
+
+	Plug 'endel/vim-github-colorscheme'
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 	" Initialize plugin system
 call plug#end()
 
 " colorscheme needs vim plug
-colorscheme jellybeans
+"colorscheme tokyonight
 
 " for buffergator allow swap unsaved buffer
 set hidden
@@ -147,3 +156,17 @@ augroup end
 
 nmap <F8> :TagbarToggle<CR>
 
+"colorscheme jellybeans
+"colorscheme tokyonight-moon
+"colorscheme github
+colorscheme wildcharm
+
+" vim prettier
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_config_present = 1
+let g:prettier#exec_cmd_path = '<path-to-your-prettier>'
+let g:prettier#quickfix_enabled = 0
+let g:prettier#config#tab_width = 4   " Adjust tab width to your preference
+let g:prettier#config#use_tabs = 'true'  " Use tabs instead of spaces
+
+"autocmd FileType typescriptreact setlocal formatprg=prettier\ --stdin-filepath\ % --parser\ typescript

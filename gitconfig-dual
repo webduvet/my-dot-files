@@ -1,0 +1,11 @@
+[user]
+	email = andrej.bartko@gmail.com
+	name = andrej_bartko
+[core]
+	editor = vi
+	sshCommand = ssh -i ~/.ssh/webduvet
+
+[includeif "gitdir:~/infinite/**/*"]
+	path = ~/infinite/.gitconfig
+[init]
+	defaultBranch = main

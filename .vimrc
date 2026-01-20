@@ -4,11 +4,13 @@ set timeoutlen=1000 ttimeoutlen=0
 
 set nu
 set colorcolumn=100
+set wrap
 
 " visible hidden characters
 set list listchars+=nbsp:· listchars-=eol:$
 "set listchars=tab:\ \ ,nbsp:·
 let &listchars = 'tab:| ,nbsp:·'
+
 
 " turn off autofolding
 set nofoldenable
@@ -21,6 +23,18 @@ set tabstop=4 shiftwidth=4 smarttab noexpandtab
 autocmd Filetype javascript setlocal ts=4 sw=4 noexpandtab
 autocmd Filetype json setlocal ts=4 sw=4 noexpandtab
 autocmd Filetype c setlocal ts=8 sw=8 noexpandtab
+
+" Change cursor shape based on mode
+" " 1 or 0 = blinking block
+" " 2 = solid block (Normal Mode)
+" " 3 = blinking underscore
+" " 4 = solid underscore (Insert Mode)
+" " 5 = blinking vertical bar
+" " 6 = solid vertical bar
+"
+let &t_SI = "\<Esc>[4 q" " Start Insert: Solid Underscore
+let &t_EI = "\<Esc>[2 q" " End Insert:  Solid Block
+
 
 " prettier settings
 " this prettify everything upon the save - not very user friendly
@@ -36,49 +50,63 @@ let g:python3_host_prog='/usr/bin/python3'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdcommenter'
-"  Plug 'pangloss/vim-javascript'
-Plug 'rking/ag.vim'
-"  Plug 'mxw/vim-jsx'
-"  Plug 'w0rp/ale'
-"  let g:ale_linters = {'javascript': ['eslint', 'flow']}  
-Plug 'plasticboy/vim-markdown'
-Plug 'jiangmiao/auto-pairs'
-Plug 'martinda/Jenkinsfile-vim-syntax'
-Plug 'udalov/kotlin-vim'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'lygaret/autohighlight.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'easymotion/vim-easymotion'
-Plug 'pboettch/vim-highlight-cursor-words'
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'xolox/vim-notes'
-Plug 'xolox/vim-misc'
-"Plug 'Yggdroot/indentLine'
+	" Plugin outside ~/.vim/plugged with post-update hook
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'junegunn/fzf.vim'
+	Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
+	Plug 'tpope/vim-surround'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+	Plug 'scrooloose/nerdcommenter'
+	"  Plug 'pangloss/vim-javascript'
+	Plug 'rking/ag.vim'
+	Plug 'prettier/vim-prettier'
+	"Plug 'mxw/vim-jsx'
+	"Plug 'HerringtonDarkholme/vim-jsx-pretty'
+	Plug 'MaxMEllon/vim-jsx-pretty'
 
-Plug 'aserebryakov/vim-todo-lists'
-Plug 'leafgarland/typescript-vim'
+	  "Plug 'w0rp/ale'
+	  "let g:ale_linters = {'javascript': ['eslint']}  
+	Plug 'plasticboy/vim-markdown'
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'martinda/Jenkinsfile-vim-syntax'
+	Plug 'udalov/kotlin-vim'
+	Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+	"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	"Plug 'lygaret/autohighlight.vim'
+	Plug 'scrooloose/nerdtree'
+	Plug 'easymotion/vim-easymotion'
+	Plug 'pboettch/vim-highlight-cursor-words'
+	Plug 'jeetsukumaran/vim-buffergator'
+	Plug 'xolox/vim-notes'
+	Plug 'xolox/vim-misc'
+	"Plug 'Yggdroot/indentLine'
 
+	Plug 'aserebryakov/vim-todo-lists'
+	Plug 'leafgarland/typescript-vim'
 
-"Grammar
-Plug 'rhysd/vim-grammarous'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+	Plug 'vim-latex/vim-latex'
 
-Plug 'github/copilot.vim '
+	"Grammar
+	Plug 'rhysd/vim-grammarous'
+	Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
-Plug 'preservim/tagbar'
-Plug 'udalov/kotlin-vim'
-" Initialize plugin system
+    "Plug 'github/copilot.vim'
+
+	Plug 'preservim/tagbar'
+    Plug 'udalov/kotlin-vim'
+
+	Plug 'endel/vim-github-colorscheme'
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+	Plug 'APZelos/blamer.nvim'
+
+	" Initialize plugin system
 call plug#end()
+
+" colorscheme needs vim plug
+"colorscheme tokyonight
 
 " for buffergator allow swap unsaved buffer
 set hidden
@@ -87,12 +115,12 @@ set hidden
 let g:deoplete#enable_at_startup = 1
 
 inoremap <silent><expr> <TAB>
-\ pumvisible() ? "\<C-n>" :
-\ <SID>check_back_space() ? "\<TAB>" :
-\ deoplete#mappings#manual_complete()
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ deoplete#mappings#manual_complete()
 function! s:check_back_space() abort "{{{
-let col = col('.') - 1
-return !col || getline('.')[col - 1]  =~ '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
 
 set clipboard=unnamedplus
@@ -121,6 +149,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+
+" Map <Leader>b to echo the git blame for the current line
+" nnoremap <Leader>g :echo fugitive#Head() . ' ' . system('git blame -L ' . line('.') . ',' . line('.') . ' --porcelain ' . expand('%') . ' | grep ^author "')<CR>
+let g:blamer_enabled = 1
+let g:blamer_show_in_insert_modes = 0
+
 " NERDTree
 map <leader>n :NERDTreeToggle<cr>
 :let g:NERDTreeWinSize=60
@@ -135,10 +169,25 @@ imap § <Esc>
 "map <leader>e ├
 
 augroup filetype_c
-autocmd!
-:autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 expandtab smarttab
-:autocmd FileType c nnoremap <buffer> <localleader>c I/*<space><esc><s-a><space>*/<esc>
+	autocmd!
+	:autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 expandtab smarttab
+	:autocmd FileType c nnoremap <buffer> <localleader>c I/*<space><esc><s-a><space>*/<esc>
 augroup end
 
 nmap <F8> :TagbarToggle<CR>
 
+"colorscheme jellybeans
+"colorscheme tokyonight-moon
+"colorscheme github
+set background=dark
+colorscheme wildcharm
+
+" vim prettier
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_config_present = 1
+let g:prettier#exec_cmd_path = '<path-to-your-prettier>'
+let g:prettier#quickfix_enabled = 0
+let g:prettier#config#tab_width = 4   " Adjust tab width to your preference
+let g:prettier#config#use_tabs = 'true'  " Use tabs instead of spaces
+
+"autocmd FileType typescriptreact setlocal formatprg=prettier\ --stdin-filepath\ % --parser\ typescript

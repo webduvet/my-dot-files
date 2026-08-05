@@ -1,0 +1,357 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+      },
+      "enable_lsp_tasks": true,
+    },
+  },
+  "cli_default_open_behavior": "existing_window",
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "agent_servers": {
+    "stakpak": {
+      "type": "registry",
+    },
+    "mistral-vibe": {
+      "type": "registry",
+    },
+    "cline": {
+      "type": "registry",
+    },
+    "codex-acp": {
+      "type": "registry",
+    },
+    "goose": {
+      "type": "registry",
+    },
+    "opencode": {
+      "type": "registry",
+    },
+    "claude-acp": {
+      "type": "registry",
+    },
+    "gemini": {
+      "type": "registry",
+    },
+    "cursor": {
+      "type": "registry",
+    },
+  },
+  "terminal": {
+    "font_size": 12.0,
+  },
+  "language_models": {
+    "openai_compatible": {
+      "Z.ai": {
+        "api_url": "https://api.z.ai/api/coding/paas/v4",
+        "available_models": [
+          {
+            "name": "glm-5.2",
+            "display_name": "GLM 5.2",
+            "max_tokens": 1048576,
+            "max_output_tokens": 384000,
+          },
+          {
+            "name": "glm-4.6",
+            "display_name": "GLM 4.6",
+            "max_tokens": 1048576,
+            "max_output_tokens": 384000,
+          },
+        ],
+      },
+      "DeepSeekV4_manual": {
+        "api_url": "https://api.deepseek.com",
+        "available_models": [
+          {
+            "name": "deepseek-v4-pro",
+            "max_tokens": 1048576,
+            "max_output_tokens": 384000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": true,
+            },
+          },
+          {
+            "name": "deepseek-v4-flash",
+            "max_tokens": 1048576,
+            "max_output_tokens": 384000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": true,
+            },
+          },
+        ],
+      },
+      "Cerebras": {
+        "api_url": "https://api.cerebras.ai/v1",
+        "available_models": [
+          {
+            "name": "qwen-3-235b-a22b-instruct-2507",
+            "max_tokens": 65536,
+            "max_output_tokens": 65536,
+            "max_completion_tokens": 65536,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+          {
+            "name": "llama3.1-8b",
+            "max_tokens": 32768,
+            "max_output_tokens": 32768,
+            "max_completion_tokens": 32768,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+          {
+            "name": "gpt-oss-120b",
+            "max_tokens": 131000,
+            "max_output_tokens": 131000,
+            "max_completion_tokens": 131000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+          {
+            "name": "zai-glm-4.7",
+            "max_tokens": 131072,
+            "max_output_tokens": 131000,
+            "max_completion_tokens": 131000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+        ],
+      },
+    },
+  },
+  "edit_predictions": {
+    "provider": "copilot",
+  },
+  "context_servers": {
+    "mcp-server-github": {
+      "enabled": true,
+      "remote": false,
+      "settings": {
+        "github_personal_access_token": "GITHUB_PERSONAL_ACCESS_TOKEN",
+      },
+    },
+    "postgres-context-server": {
+      "enabled": true,
+      "remote": false,
+      "settings": {},
+    },
+    "mcp-server-figma": {
+      "enabled": true,
+      "settings": {
+        "figma_api_key": "YOUR_FIGMA_ACCESS_TOKEN",
+      },
+    },
+  },
+  "project_panel": {
+    "dock": "left",
+    "auto_reveal_entries": false,
+  },
+  "agent": {
+    "sandbox_permissions": {
+      "network_hosts": [
+        "docs.bankingcircleconnect.com"
+      ]
+    },
+    "dock": "right",
+    "profiles": {
+      "custom": {
+        "name": "Custom",
+        "tools": {},
+        "enable_all_context_servers": false,
+        "context_servers": {
+          "mcp-server-github": {
+            "tools": {
+              "create_pull_request": true,
+            },
+          },
+          "mcp-server-context7": {
+            "tools": {
+              "resolve-library-id": true,
+            },
+          },
+          "mcp-server-figma": {
+            "tools": {
+              "download_figma_images": true,
+              "get_figma_data": true,
+            },
+          },
+          "prisma-mcp": {
+            "tools": {
+              "Prisma-Studio": true,
+              "migrate-dev": true,
+              "migrate-reset": true,
+              "migrate-status": true,
+            },
+          },
+        },
+      },
+      "write": {
+        "name": "write",
+        "tools": {},
+        "enable_all_context_servers": false,
+        "context_servers": {},
+      },
+    },
+    "tool_permissions": {
+      "tools": {
+        "fetch": {
+          "always_allow": [
+            {
+              "pattern": "^https?://docs\\.bankingcircleconnect\\.com"
+            }
+          ]
+        },
+        "move_path": {
+          "default": "allow",
+          "always_allow": [
+            {
+              "pattern": "^pr_buddy/apps/webhooks/src/app/",
+            },
+          ],
+        },
+        "delete_path": {
+          "default": "allow",
+          "always_allow": [
+            {
+              "pattern": "^pr_buddy/apps/webhooks/src/",
+            },
+            {
+              "pattern": "^pr_buddy/apps/webhooks/",
+            },
+          ],
+        },
+        "copy_path": {
+          "always_allow": [
+            {
+              "pattern": "^pr_buddy/apps/",
+            },
+          ],
+        },
+        "terminal": {
+          "default": "allow",
+          "always_allow": [
+            {
+              "pattern": "^pnpm\\s+nx(\\s|$)",
+            },
+            {
+              "pattern": "^ls\\s+/home/andrej/infinite/(\\s|$)",
+            },
+            {
+              "pattern": "^ls\\s+/home/andrej/infinite/npi-cloud/(\\s|$)",
+            },
+          ],
+        },
+        "open": {
+          "default": "allow",
+        },
+        "edit_file": {
+          "always_allow": [
+            {
+              "pattern": "^buddy/\\.zed/contexts/",
+            },
+          ],
+        },
+        "create_directory": {
+          "default": "allow",
+          "always_allow": [
+            {
+              "pattern": "^buddy/\\.zed/",
+            },
+          ],
+        },
+      },
+    },
+    "play_sound_when_agent_done": "always",
+    "default_profile": "ask",
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4.6",
+    },
+    "model_parameters": [],
+    "default_model": {
+      "enable_thinking": false,
+      "provider": "Z.ai",
+      "model": "glm-5.2",
+    },
+  },
+  "languages": {
+    "JavaScript": {
+      "format_on_save": "off",
+    },
+  },
+  "telemetry": {
+    "metrics": false,
+  },
+  "vim_mode": true,
+  "ui_font_size": 17.0,
+  "buffer_font_size": 14.0,
+  "theme": {
+    "mode": "dark",
+    "light": "Gruvbox Crisp Anysphere Blend Light",
+    // "dark": "Dark Pop UI"
+    "dark": "Gruvbox Dark Soft",
+  },
+  "buffer_font_features": {
+    "calt": true,
+  },
+  "tabs": {
+    "close_position": "right",
+    "show_close_button": "always",
+  },
+}

@@ -1,15 +1,18 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export EDITOR='nvim'
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+
+# Add these to ~/.bashrc or ~/.zshrc
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -86,20 +89,28 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias oc=opencode
+alias pd=podman
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+export PATH=$HOME/.local/bin:$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -107,28 +118,23 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# pyenv install
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# docker to podman and back
+export DOCKER_HOST=unix:///run/user/$(id -u)/podman/podman.sock
+
+# add Pulumi to the PATH
+export PATH=$PATH:/home/andrej/.pulumi/bin
+
+# bun completions
+[ -s "/home/andrej/.bun/_bun" ] && source "/home/andrej/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/and/my/boogle/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/home/and/my/boogle/gcloud/google-cloud-sdk/path.zsh.inc'; fi
+# Added by Antigravity CLI installer
+export PATH="/home/andrej/.local/bin:$PATH"
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/and/my/boogle/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/and/my/boogle/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
-
-export PATH=$PATH:/home/and/soft/apache-maven/apache-maven-3.9.5/bin
-
-alias vi=nvim
-
+# Go lang
 export PATH=$PATH:/usr/local/go/bin
-
-alias kc=kubectl
-
-. "$HOME/.local/bin/env"

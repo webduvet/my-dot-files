@@ -88,6 +88,8 @@ Plug 'udalov/kotlin-vim'
 Plug 'endel/vim-github-colorscheme'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+Plug 'webduvet/vim-yankref'
+
 " Initialize plugin system
 call plug#end()
 
@@ -170,3 +172,9 @@ function! s:check_back_space() abort "{{{
 	let g:prettier#config#use_tabs = 'true'  " Use tabs instead of spaces
 
 	"autocmd FileType typescriptreact setlocal formatprg=prettier\ --stdin-filepath\ % --parser\ typescript
+
+" Map Normal mode trigger
+nmap <leader>a <Plug>(YankRefNormal)
+
+" Map Visual mode trigger
+xmap <leader>a <Plug>(YankRefVisual)
